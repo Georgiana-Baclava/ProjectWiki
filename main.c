@@ -119,11 +119,11 @@ void * track (void *fp) {
 }
 
 int main(void){
-	
+	/*
 	pthread_t workThread, trackThread;
 	
 	FILE *in;
-	in = fopen("out.txt", "r");
+	in = fopen("enwiki-20150702-pages-articles.xml", "r");
 	if(!in){
 		printf("Error\n");
 		return 0;
@@ -143,7 +143,7 @@ int main(void){
 	
 	saveStrGraph(G, "save");
 	
-	/*
+	*/
 	StrGraph *G = loadStrGraph("save");
 	
 	FILE *out = fopen("possible_exceptions", "w");
@@ -156,7 +156,7 @@ int main(void){
 			}
 		}
 	}
-	*/
+	
 	destroyStrGraph(&G);
 	return 0;
 }
