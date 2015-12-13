@@ -1,11 +1,17 @@
 CC = gcc -c
 LD = gcc
-CFLAGS = -Wall -Wextra -Wpedantic -std=gnu99 -o3
+CFLAGS = -Wall -Wextra -Wpedantic -std=gnu99 -g
 INCLUDES = -pthread
 
 main: main.o strgraph.o
 	$(LD) $(INCLUDES) $^ $(CFLAGS) -o $@
-	
+
+build_csv: database_output.o strgraph.o	strgraph.o
+	$(LD) $(INCLUDES) $^ $(CFLAGS) -o $@
+
+database_output.o: database_output.c strgraph.h
+	$(CC) $(INCLUDES) $< $(CFLAGS) -o $@
+
 testgen: testgen.o
 	$(LD) $(INCLUDES) $^ $(CFLAGS) -o $@
 	
